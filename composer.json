@@ -1,0 +1,11 @@
+{
+    "name": "mikonti/mortgage",
+    "description": "mortgage-loan",
+    "authors": [
+        {
+            "name": "mhiggster",
+            "email": "mhiggster@gmail.com"
+        }
+    ],
+    "require": {}
+}
