@@ -3,8 +3,8 @@
 namespace Mortgage;
 
 
-use Mortgage\Credits\Mortgage;
-use Mortgage\Factory\RepaymentScheduleFactory;
+use Mortgage\Mortgage;
+use Mortgage\Contracts\RepaymentSchedule;
 use Mortgage\Support\EffectiveRate;
 /**
  * 
@@ -14,15 +14,26 @@ class DifferentiatedPayment extends Mortgage
     private $repaymentScheduleFactory;
     private $effectiveRate;
     // i thin there will be the interface
-    function __construct(RepaymentScheduleFactory $repaymentScheduleFactory, EffectiveRate $effectiveRate, $loanTerm, $loanAmount, $interestRate)
+    
+    function __construct(RepaymentSchedule $repaymentScheduleFactory, EffectiveRate $effectiveRate, $loanTerm = 48, $loanAmount = 8000000, $interestRate = 18)
     {
-
+// 48, 8000000, 18
         parent::__construct($loanTerm, $loanAmount, $interestRate);
 
         $this->repaymentScheduleFactory = $repaymentScheduleFactory->toCompute($this);
 
         $this->effectiveRate = $effectiveRate;
     }
+
+    // function __construct(RepaymentSchedule $repaymentScheduleFactory, EffectiveRate $effectiveRate, $loanTerm, $loanAmount, $interestRate)
+    // {
+
+    //     parent::__construct($loanTerm, $loanAmount, $interestRate);
+
+    //     $this->repaymentScheduleFactory = $repaymentScheduleFactory->toCompute($this);
+
+    //     $this->effectiveRate = $effectiveRate;
+    // }
 
 
     public function showRepaymentSchedule()

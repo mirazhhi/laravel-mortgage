@@ -1,22 +1,39 @@
 <?php
 
-namespace Mhiggster\Mortgage;
+namespace Mortgage;
 
-/**
- * Надо будет переименовать 
- */
 abstract class Mortgage
 {
 
-
-    protected $loanTerm = 12; // default value
+    /**
+     * the period when the debtor 
+     * must pay off the debt
+     * 
+     * @var integer
+     */
+    protected $loanTerm = 12;
     
+    /**
+     * customer loan amount
+     * 
+     * @var integer
+     */
     protected $loanAmount = 8000000;
     
+    /**
+     * interest rate - provided by creditor/lender
+     * 
+     * @var float
+     */
     protected $interestRate = 14.5;
 
 
-
+    /**
+     * [__construct description]
+     * @param integer $loanTerm
+     * @param integer $loanAmount
+     * @param integer $interestRate
+     */
     function __construct($loanTerm, $loanAmount, $interestRate)
     {
         $this->loanTerm = $loanTerm;

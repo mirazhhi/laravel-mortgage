@@ -8,16 +8,6 @@
         }
     ],
     "require": {},
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Barryvdh\\Debugbar\\ServiceProvider"
-            ],
-            "aliases": {
-                "Debugbar": "Barryvdh\\Debugbar\\Facade"
-            }
-        }
-    },
     "autoload": {
         "psr-4": {
             "Mhiggster\\Mortgage\\": "src/"

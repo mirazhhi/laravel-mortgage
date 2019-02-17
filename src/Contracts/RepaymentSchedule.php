@@ -1,12 +1,12 @@
 <?php
 
-namespace Mhiggster\Mortgage\Contracts;
+namespace Mortgage\Contracts;
 
-use Mortgage\Credits\Mortgage;
+use Mortgage\Mortgage;
 /**
  * Производстов элементов погаешния по месяцам
  */
-interface RepaymentScheduleFactory
+interface RepaymentSchedule
 {
     public function toCompute(Mortgage $mortgage);
 }
