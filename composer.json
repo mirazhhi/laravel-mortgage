@@ -7,5 +7,25 @@
             "email": "mhiggster@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Barryvdh\\Debugbar\\ServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Barryvdh\\Debugbar\\Facade"
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Mhiggster\\Mortgage\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mhiggster\\Tests\\Mortgage\\": "tests/"
+        }
+    }
 }
