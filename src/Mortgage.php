@@ -6,7 +6,7 @@ abstract class Mortgage
 {
 
     /**
-     * the period when the debtor 
+     * The period when the debtor 
      * must pay off the debt
      * 
      * @var integer
@@ -14,14 +14,14 @@ abstract class Mortgage
     protected $loanTerm = 12;
     
     /**
-     * customer loan amount
+     * Customer loan amount
      * 
      * @var integer
      */
     protected $loanAmount = 8000000;
     
     /**
-     * interest rate - provided by creditor/lender
+     * Interest rate - provided by creditor/lender
      * 
      * @var float
      */
@@ -29,44 +29,64 @@ abstract class Mortgage
 
 
     /**
-     * [__construct description]
+     * Initializes the main parameters
+     * 
      * @param integer $loanTerm
      * @param integer $loanAmount
-     * @param integer $interestRate
+     * @param mixed $interestRate
      */
     function __construct($loanTerm, $loanAmount, $interestRate)
     {
-        $this->loanTerm = $loanTerm;
-        $this->loanAmount = $loanAmount;
+        $this->loanTerm     = $loanTerm;
+        $this->loanAmount   = $loanAmount;
         $this->interestRate = $interestRate;
     }
     
-    // сроки кредитование
+    /**
+     * Retrieves loan term
+     * 
+     * @return integer
+     */
     public function getLoanTerm()
     {
         return $this->loanTerm;
     }
 
-     //  Сумма займа
+    /**
+     * Retrieves loan Amount
+     * 
+     * @return integer
+     */
     public function getLoanAmount()
     {
         return $this->loanAmount;
     }
     
-    // ставка вознограждения / процентная ставка
+    /**
+     * Retrieves interest rate
+     * 
+     * @return mixed [integer/float]
+     */
     public function getInterestRate()
     {
         return $this->interestRate;
     }
 
-    // процентный коэффициент
+    /**
+     * Сalculates the percentage
+     * 
+     * @return flaot
+     */
     public function getPercentageRatio()
     {
-        // return $this->interestRate / $this->loanTerm;
         return $this->interestRate / 12;
     }
 
-    // Основной долг
+    /**
+     * Сalculates main dept by month
+     * 
+     * @return float
+     */
     public function getMainDept()
     {
         return $this->loanAmount / $this->loanTerm;

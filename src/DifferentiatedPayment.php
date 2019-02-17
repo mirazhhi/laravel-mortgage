@@ -2,61 +2,84 @@
 
 namespace Mortgage;
 
-
 use Mortgage\Mortgage;
-use Mortgage\Contracts\RepaymentSchedule;
 use Mortgage\Support\EffectiveRate;
-/**
- * 
- */
+use Mortgage\Contracts\RepaymentScheduleFactory;
+
 class DifferentiatedPayment extends Mortgage
 {
+    /**
+     * This object will produce
+     * a repayment schedule for each month
+     * 
+     * @var object
+     */
     private $repaymentScheduleFactory;
+
+    /**
+     * This object will calculate
+     * the annual effective rate
+     * 
+     * @var object
+     */
     private $effectiveRate;
-    // i thin there will be the interface
-    
-    function __construct(RepaymentSchedule $repaymentScheduleFactory, EffectiveRate $effectiveRate, $loanTerm = 48, $loanAmount = 8000000, $interestRate = 18)
+
+    /**
+     * TO DO
+     * 
+     * @param RepaymentScheduleFactory $repaymentScheduleFactory
+     * @param EffectiveRate     $effectiveRate
+     * @param integer           $loanTerm
+     * @param integer           $loanAmount
+     * @param integer           $interestRate
+     */
+    function __construct(RepaymentScheduleFactory $repaymentScheduleFactory, EffectiveRate $effectiveRate, $loanTerm = 48, $loanAmount = 8000000, $interestRate = 18)
     {
-// 48, 8000000, 18
+        // we get the default information from config another ways we get in the other method
         parent::__construct($loanTerm, $loanAmount, $interestRate);
 
         $this->repaymentScheduleFactory = $repaymentScheduleFactory->toCompute($this);
 
-        $this->effectiveRate = $effectiveRate;
+        $this->effectiveRate            = $effectiveRate;
     }
 
-    // function __construct(RepaymentSchedule $repaymentScheduleFactory, EffectiveRate $effectiveRate, $loanTerm, $loanAmount, $interestRate)
-    // {
-
-    //     parent::__construct($loanTerm, $loanAmount, $interestRate);
-
-    //     $this->repaymentScheduleFactory = $repaymentScheduleFactory->toCompute($this);
-
-    //     $this->effectiveRate = $effectiveRate;
-    // }
-
-
+    /**
+     * Displays the repayment schedule for the entire period
+     * 
+     * @return array
+     */
     public function showRepaymentSchedule()
     {
-        // use the Schedule dependens
         return $this->repaymentScheduleFactory['repaymentScheduleResult'];
     }
     
-    // итоговая сумма в процентах
+    /**
+     * Total amount in percent
+     * 
+     * @return integer
+     */
     public function getPercentAmount()
     {
        return $this->repaymentScheduleFactory['totalPercentDept']; 
     }
 
-
+    /**
+     * Effective rate in percent
+     * 
+     * @return integer
+     */
     public function effectiveRate()
     {
-
         return $this->effectiveRate->toCompute($this->repaymentScheduleFactory['deptValues']);
     }
 
 
-    // итоговая сумма
+    /**
+     * Total amount with percent
+     * in the other words it [ percent dept + loan amount]
+     * 
+     * @return integer
+     */
     public function getTotalamount()
     {
         return $this->repaymentScheduleFactory['totalPercentDept'] + $this->loanAmount;

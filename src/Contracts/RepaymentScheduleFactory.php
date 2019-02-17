@@ -6,7 +6,7 @@ use Mortgage\Mortgage;
 /**
  * Производстов элементов погаешния по месяцам
  */
-interface RepaymentSchedule
+interface RepaymentScheduleFactory
 {
     public function toCompute(Mortgage $mortgage);
 }

@@ -1,15 +1,15 @@
 <?php
 
-namespace Mortgage\Foundation;
+namespace Mortgage\Factory;
 
 use Mortgage\Mortgage;
-use Mortgage\Contracts\RepaymentSchedule;
+use Mortgage\Contracts\RepaymentScheduleFactory;
 /**
  * График погошения
  * Он будет интерфейсом
  * !! Переименовать
  */
-class DifferentiatedPayment implements RepaymentSchedule
+class DifferentiatedPayment implements RepaymentScheduleFactory
 {
 
     private $repaymentScheduleResult = [];

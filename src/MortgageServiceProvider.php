@@ -14,12 +14,12 @@ class MortgageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->when(\Mortgage\DifferentiatedPayment::class)
-                  ->needs(\Mortgage\Contracts\RepaymentSchedule::class)
-                  ->give(\Mortgage\Foundation\DifferentiatedPayment::class);
+                  ->needs(\Mortgage\Contracts\RepaymentScheduleFactory::class)
+                  ->give(\Mortgage\Factory\DifferentiatedPayment::class);
 
         $this->app->when(\Mortgage\Annuity::class)
-                  ->needs(\Mortgage\Contracts\RepaymentSchedule::class)
-                  ->give(\Mortgage\Foundation\Annuity::class);
+                  ->needs(\Mortgage\Contracts\RepaymentScheduleFactory::class)
+                  ->give(\Mortgage\Factory\Annuity::class);
         //           
         // $mortgage = $this->app->make(\Mortgage\DifferentiatedPayment::class, [
         //     'loanTerm' => 48,

@@ -3,13 +3,13 @@
 namespace Mortgage\Foundation;
 
 use Mortgage\Mortgage;
-use Mortgage\Contracts\RepaymentSchedule;
+use Mortgage\Contracts\RepaymentScheduleFactory;
 /**
  * График погошения
  * Он будет интерфейсом
  * !! Переименовать
  */
-class Annuity implements RepaymentSchedule
+class Annuity implements RepaymentScheduleFactory
 {
 
     private $repaymentScheduleResult = [];
