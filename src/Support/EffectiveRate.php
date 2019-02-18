@@ -5,11 +5,24 @@ namespace Mortgage\Support;
 
 class EffectiveRate
 {
+    /**
+     * Iterations counts
+     * 
+     * @var integer FINANCIAL_MAX_ITERATIONS
+     */
     const FINANCIAL_MAX_ITERATIONS = 128;
+    /**
+     * @var float FINANCIAL_ACCURACY
+     */
     const FINANCIAL_ACCURACY = 1.0e-08;
 
-
-    // Вынести в отдельный класс и внедрить как зависемость
+    /**
+     * DATEDIFF TO DO
+     * 
+     * @param string $datepart  [description]
+     * @param integer $startdate unixtime
+     * @param integer $enddate   unixtime
+     */
     private function DATEDIFF($datepart, $startdate, $enddate)
     {
         switch (strtolower($datepart)) {
@@ -56,6 +69,14 @@ class EffectiveRate
         }
     }
 
+    /**
+     * XNPV TO DO
+     * 
+     * @param float $rate
+     * @param array $values
+     * @param array $dates
+     * @return mixed
+     */
     private function XNPV($rate, $values, $dates)
     {
         if ((!is_array($values)) || (!is_array($dates))) return null;
@@ -66,9 +87,19 @@ class EffectiveRate
         {
             $xnpv += $values[$i] / pow(1 + $rate, $this->DATEDIFF('day', $dates[0], $dates[$i]) / 365);
         }
+
         return (is_finite($xnpv) ? $xnpv: null);
     }
 
+
+    /**
+     * XIRR TO DO
+     * 
+     * @param array $values
+     * @param array $dates
+     * @param float  $guess
+     * @return mixed
+     */
     private function XIRR($values, $dates, $guess = 0.1)
     {
         if ((!is_array($values)) && (!is_array($dates))) return null;
@@ -111,7 +142,12 @@ class EffectiveRate
     }
 
 
-
+    /**
+     * To compute effective rate
+     * 
+     * @param  array $deptValues
+     * @return float
+     */
     public function toCompute($deptValues)
     {
         $dates = [];

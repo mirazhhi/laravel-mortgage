@@ -11,21 +11,21 @@ abstract class Mortgage
      * 
      * @var integer
      */
-    protected $loanTerm = 12;
+    protected $loanTerm;
     
     /**
      * Customer loan amount
      * 
      * @var integer
      */
-    protected $loanAmount = 8000000;
+    protected $loanAmount;
     
     /**
      * Interest rate - provided by creditor/lender
      * 
      * @var float
      */
-    protected $interestRate = 14.5;
+    protected $interestRate;
 
 
     /**

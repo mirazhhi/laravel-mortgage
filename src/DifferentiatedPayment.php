@@ -33,10 +33,9 @@ class DifferentiatedPayment extends Mortgage
      * @param integer           $loanAmount
      * @param integer           $interestRate
      */
-    function __construct(RepaymentScheduleFactory $repaymentScheduleFactory, EffectiveRate $effectiveRate, $loanTerm = 48, $loanAmount = 8000000, $interestRate = 18)
+    function __construct(RepaymentScheduleFactory $repaymentScheduleFactory, EffectiveRate $effectiveRate)
     {
-        // we get the default information from config another ways we get in the other method
-        parent::__construct($loanTerm, $loanAmount, $interestRate);
+        parent::__construct(config('mortgage.loanTerm'), config('mortgage.loanAmount'), config('mortgage.interestRate'));
 
         $this->repaymentScheduleFactory = $repaymentScheduleFactory->toCompute($this);
 

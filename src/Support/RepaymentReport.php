@@ -6,49 +6,54 @@ namespace Mortgage\Support;
 class RepaymentReport
 {
     /**
-     * [$termInMonth description]
-     * @var [type]
+     * Month index for repayment
+     * 
+     * @var integer
      */
-    
     private $termInMonth;
+
     /**
-     * [$totoalDept description]
-     * @var [type]
+     * dept = percent + main dept
+     * 
+     * @var integer
      */
-    
     private $totoalDept;
+
     /**
-     * [$percentDept description]
-     * @var [type]
+     * Only percent dept
+     * 
+     * @var integer
      */
-    
     private $percentDept;
+
     /**
-     * [$mainDept description]
-     * @var [type]
+     * Debt without percent
+     * 
+     * @var integer
      */
-    
     private $mainDept;
+
     /**
-     * [$indebtedness description]
-     * @var [type]
+     * Balance owed
+     * 
+     * @var integer
      */
-    
     private $indebtedness;
     
     /**
-     * [__construct description]
-     * @param [type] $termInMonth  [description]
-     * @param [type] $totoalDept   [description]
-     * @param [type] $percentDept  [description]
-     * @param [type] $mainDept     [description]
-     * @param [type] $indebtedness [description]
+     * Init repayments for per month
+     * 
+     * @param integer/float $termInMonth
+     * @param integer/float $totoalDept
+     * @param integer/float $percentDept
+     * @param integer/float $mainDept
+     * @param integer/float $indebtedness
      */
     public function __construct($termInMonth, $totoalDept, $percentDept, $mainDept, $indebtedness) {
-        $this->termInMonth = $termInMonth;
-        $this->totoalDept = $totoalDept;
-        $this->percentDept = $percentDept;
-        $this->mainDept = $mainDept;
+        $this->termInMonth  = $termInMonth;
+        $this->totoalDept   = $totoalDept;
+        $this->percentDept  = $percentDept;
+        $this->mainDept     = $mainDept;
         $this->indebtedness = $indebtedness;
     }
 }
