@@ -4,7 +4,7 @@ namespace Mortgage\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class DifferentiatedPayment extends Facade
+class Differentiated extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class DifferentiatedPayment extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'DifferentiatedPayment';
+        return 'Differentiated';
     }
 }

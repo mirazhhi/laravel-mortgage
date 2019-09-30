@@ -29,7 +29,7 @@
             ],
             "aliases": {
                 "Annuity": "Mortgage\\Facades\\Annuity",
-                "DifferentiatedPayment": "Mortgage\\Facades\\DifferentiatedPayment"
+                "Differentiated": "Mortgage\\Facades\\Differentiated"
             }
         }
     }
