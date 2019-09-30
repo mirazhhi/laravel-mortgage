@@ -40,21 +40,72 @@ Look at one of the following topics to learn more about LaravelMortgage
 
 The mortgage gives you the following methods to use:
 
+### Annuity::getLoanTerm() / Differentiated::getLoanTerm()
 
-### DF::getLoanTerm()
-### DF::getLoanAmount()
-### DF::getInterestRate()
-### DF::getMainDept()
-### DF::showRepaymentSchedule()
-### DF::getPercentAmount()
-### DF::effectiveRate()
-### DF::getTotalamount()
+Simple getter which retrieves the loan term
+
+```php
+Annuity::getLoanTerm() // 48
+```
+### Annuity::getLoanAmount()
+
+Simple getter which retrieves the loan amount
+
+```php
+Annuity::getLoanAmount() // 8000000
+```
+
+### Annuity::getInterestRate()
+
+Simple getter which retrieves the interest rate
+
+```php
+Annuity::getInterestRate() // 18
+```
+
+### Annuity::getMainDept()
+
+Simple getter which retrieves the main dept. You can round them as you want
+
+```php
+Annuity::getMainDept() // 166666.66666667
+```
+
+### Annuity::showRepaymentSchedule()
+
+Rendering Schedule by periods
+
+```php
+Annuity::showRepaymentSchedule()
+```
+
+### Annuity::getPercentAmount()
+
+Rendering Schedule by periods
+
+```php
+Annuity::getPercentAmount()
+```
+
+### Annuity::effectiveRate()
+
+Rendering Schedule by periods
+
+```php
+Annuity::effectiveRate()
+```
+
+### Annuity::getTotalamount()
+
+Rendering Schedule by periods
+
+```php
+Annuity::getTotalamount()
+```
+
 
 Lorem ipsum dolord sit amet, consectetur adipisicing elit. Ab ullam quisquam ex, quo. Molestiae accusantium ut quis libero repellat ratione dolorum, illo nulla in cumque officia, eaque quaerat suscipit perferendis.
 
-```php
-DF::getLoanTerm();
-```
 
 ## Exceptions
 
