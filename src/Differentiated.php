@@ -25,7 +25,6 @@ class Differentiated extends Mortgage
     private $effectiveRate;
 
     /**
-     * TO DO
      * 
      * @param RepaymentSchedule $repaymentSchedule
      * @param EffectiveRate     $effectiveRate
@@ -49,7 +48,7 @@ class Differentiated extends Mortgage
      */
     public function showRepaymentSchedule()
     {
-        return $this->repaymentSchedule['repaymentScheduleResult'];
+        return collect($this->repaymentSchedule['repaymentScheduleResult']);
     }
     
     /**

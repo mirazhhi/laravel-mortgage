@@ -49,7 +49,7 @@ class Annuity extends Mortgage
      */
     public function showRepaymentSchedule()
     {
-        return $this->repaymentSchedule['repaymentScheduleResult'];
+        return collect($this->repaymentSchedule['repaymentScheduleResult']);
     }
 
     /**
