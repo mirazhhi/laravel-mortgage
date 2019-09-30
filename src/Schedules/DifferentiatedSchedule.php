@@ -3,9 +3,9 @@
 namespace Mortgage\Schedules;
 
 use Mortgage\Mortgage;
-use Mortgage\Contracts\RepaymentScheduleFactory;
+use Mortgage\Contracts\RepaymentSchedule;
 
-class DifferentiatedSchedulet implements RepaymentScheduleFactory
+class DifferentiatedSchedule implements RepaymentSchedule
 {
     /**
      * Detailed repayment schedule
