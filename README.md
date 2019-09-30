@@ -50,7 +50,7 @@ The mortgage gives you the following methods to use:
 ### DF::effectiveRate()
 ### DF::getTotalamount()
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ullam quisquam ex, quo. Molestiae accusantium ut quis libero repellat ratione dolorum, illo nulla in cumque officia, eaque quaerat suscipit perferendis.
+Lorem ipsum dolord sit amet, consectetur adipisicing elit. Ab ullam quisquam ex, quo. Molestiae accusantium ut quis libero repellat ratione dolorum, illo nulla in cumque officia, eaque quaerat suscipit perferendis.
 
 ```php
 DF::getLoanTerm();
