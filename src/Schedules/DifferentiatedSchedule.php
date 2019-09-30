@@ -152,7 +152,7 @@ class DifferentiatedPayment implements RepaymentScheduleFactory
      */
     private function createSchedule($monthIndex)
     {
-        // dd($this->percentDept);
+
         return new \Mortgage\Support\RepaymentReport(
             $monthIndex, 
             $this->numbRound($this->totalDept),

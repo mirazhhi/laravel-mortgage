@@ -25,7 +25,7 @@ class Annuity extends Mortgage
     private $effectiveRate;
     
     /**
-     * TO DO
+     * 
      * 
      * @param RepaymentScheduleFactory $repaymentScheduleFactory
      * @param EffectiveRate     $effectiveRate
@@ -82,6 +82,16 @@ class Annuity extends Mortgage
     public function getTotalamount()
     {
         return $this->repaymentScheduleFactory['totalPercentDept'] + $this->loanAmount;
+    }
+
+    /**
+     * mortgageType
+     *
+     * @return void
+     */
+    public function mortgageType()
+    {
+        return 'Annuity Payment';
     }
 }
 

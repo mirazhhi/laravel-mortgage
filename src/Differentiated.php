@@ -6,7 +6,7 @@ use Mortgage\Mortgage;
 use Mortgage\Support\EffectiveRate;
 use Mortgage\Contracts\RepaymentScheduleFactory;
 
-class DifferentiatedPayment extends Mortgage
+class Differentiated extends Mortgage
 {
     /**
      * This object will produce
@@ -82,6 +82,16 @@ class DifferentiatedPayment extends Mortgage
     public function getTotalamount()
     {
         return $this->repaymentScheduleFactory['totalPercentDept'] + $this->loanAmount;
+    }
+
+    /**
+     * mortgageType
+     *
+     * @return void
+     */
+    public function mortgageType()
+    {
+        return 'Differentiated Payment';
     }
 }
 

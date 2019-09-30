@@ -91,5 +91,34 @@ abstract class Mortgage
     {
         return $this->loanAmount / $this->loanTerm;
     }
+
+
+    /**
+     * showRepaymentSchedule
+     *
+     * @return void
+     */
+    abstract public function showRepaymentSchedule();
+    
+    /**
+     * getPercentAmount
+     *
+     * @return void
+     */
+    abstract public function getPercentAmount();
+    
+    /**
+     * effectiveRate
+     *
+     * @return void
+     */
+    abstract public function effectiveRate();
+    
+    /**
+     * getTotalamount
+     *
+     * @return void
+     */
+    abstract public function getTotalamount();
     
 }
