@@ -4,7 +4,7 @@ namespace Mortgage;
 
 use Mortgage\Mortgage;
 use Mortgage\Support\EffectiveRate;
-use Mortgage\Contracts\RepaymentScheduleFactory;
+use Mortgage\Contracts\RepaymentSchedule;
 
 class Differentiated extends Mortgage
 {
@@ -14,7 +14,7 @@ class Differentiated extends Mortgage
      * 
      * @var object
      */
-    private $repaymentScheduleFactory;
+    private $repaymentSchedule;
 
     /**
      * This object will calculate
@@ -27,19 +27,19 @@ class Differentiated extends Mortgage
     /**
      * TO DO
      * 
-     * @param RepaymentScheduleFactory $repaymentScheduleFactory
+     * @param RepaymentSchedule $repaymentSchedule
      * @param EffectiveRate     $effectiveRate
      * @param integer           $loanTerm
      * @param integer           $loanAmount
      * @param integer           $interestRate
      */
-    function __construct(RepaymentScheduleFactory $repaymentScheduleFactory, EffectiveRate $effectiveRate)
+    function __construct(RepaymentSchedule $repaymentSchedule, EffectiveRate $effectiveRate)
     {
         parent::__construct(config('mortgage.loanTerm'), config('mortgage.loanAmount'), config('mortgage.interestRate'));
 
-        $this->repaymentScheduleFactory = $repaymentScheduleFactory->toCompute($this);
+        $this->repaymentSchedule = $repaymentSchedule->toCompute($this);
 
-        $this->effectiveRate            = $effectiveRate;
+        $this->effectiveRate     = $effectiveRate;
     }
 
     /**
@@ -49,7 +49,7 @@ class Differentiated extends Mortgage
      */
     public function showRepaymentSchedule()
     {
-        return $this->repaymentScheduleFactory['repaymentScheduleResult'];
+        return $this->repaymentSchedule['repaymentScheduleResult'];
     }
     
     /**
@@ -59,7 +59,7 @@ class Differentiated extends Mortgage
      */
     public function getPercentAmount()
     {
-       return $this->repaymentScheduleFactory['totalPercentDept']; 
+       return $this->repaymentSchedule['totalPercentDept']; 
     }
 
     /**
@@ -69,7 +69,7 @@ class Differentiated extends Mortgage
      */
     public function effectiveRate()
     {
-        return $this->effectiveRate->toCompute($this->repaymentScheduleFactory['deptValues']);
+        return $this->effectiveRate->toCompute($this->repaymentSchedule['deptValues']);
     }
 
 
@@ -81,7 +81,7 @@ class Differentiated extends Mortgage
      */
     public function getTotalamount()
     {
-        return $this->repaymentScheduleFactory['totalPercentDept'] + $this->loanAmount;
+        return $this->repaymentSchedule['totalPercentDept'] + $this->loanAmount;
     }
 
     /**
