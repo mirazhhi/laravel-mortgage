@@ -20,10 +20,10 @@ class MortgageServiceProvider extends ServiceProvider
 
         $this->app->when(\Mortgage\Annuity::class)
                   ->needs(\Mortgage\Contracts\RepaymentSchedule::class)
-                  ->give(\Mortgage\Schedules\DifferentiatedSchedule::class);
+                  ->give(\Mortgage\Schedules\AnnuitySchedule::class);
 
         // Facades
-        $this->app->bind('DifferentiatedPayment', \Mortgage\Differentiated::class);
+        $this->app->bind('Differentiated', \Mortgage\Differentiated::class);
         $this->app->bind('Annuity', \Mortgage\Annuity::class);
 
     }
