@@ -77,7 +77,7 @@ abstract class Mortgage
      * 
      * @return flaot
      */
-    private function getPercentageRatio()
+    public function getPercentageRatio()
     {
         return $this->interestRate / 12;
     }
@@ -87,7 +87,7 @@ abstract class Mortgage
      * 
      * @return float
      */
-    private function getMainDept()
+    public function getMainDept()
     {
         return $this->loanAmount / $this->loanTerm;
     }
