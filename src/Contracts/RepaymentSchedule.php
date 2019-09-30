@@ -4,7 +4,7 @@ namespace Mortgage\Contracts;
 
 use Mortgage\Mortgage;
 
-interface RepaymentScheduleFactory
+interface RepaymentSchedule
 {
     /**
      * Calculate the full mortgage schedule

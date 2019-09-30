@@ -14,17 +14,17 @@ class MortgageServiceProvider extends ServiceProvider
     public function register()
     {
         
-        $this->app->when(\Mortgage\DifferentiatedPayment::class)
-                  ->needs(\Mortgage\Contracts\RepaymentScheduleFactory::class)
-                  ->give(\Mortgage\Factory\DifferentiatedPayment::class);
+        $this->app->when(\Mortgage\Differentiated::class)
+                  ->needs(\Mortgage\Contracts\RepaymentSchedule::class)
+                  ->give(\Mortgage\Schedules\DifferentiatedSchedule::class);
 
         $this->app->when(\Mortgage\Annuity::class)
-                  ->needs(\Mortgage\Contracts\RepaymentScheduleFactory::class)
-                  ->give(\Mortgage\Factory\Annuity::class);
+                  ->needs(\Mortgage\Contracts\RepaymentSchedule::class)
+                  ->give(\Mortgage\Schedules\DifferentiatedSchedule::class);
 
         // Facades
-        $this->app->bind('DifferentiatedPayment', \Mortgage\DifferentiatedPayment::class);
-        $this->app->bind('Annuity', \Mortgage\DifferentiatedPayment::class);
+        $this->app->bind('DifferentiatedPayment', \Mortgage\Differentiated::class);
+        $this->app->bind('Annuity', \Mortgage\Annuity::class);
 
     }
 

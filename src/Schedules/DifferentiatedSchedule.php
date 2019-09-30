@@ -1,11 +1,11 @@
 <?php
 
-namespace Mortgage\Factory;
+namespace Mortgage\Schedules;
 
 use Mortgage\Mortgage;
 use Mortgage\Contracts\RepaymentScheduleFactory;
 
-class DifferentiatedPayment implements RepaymentScheduleFactory
+class DifferentiatedSchedulet implements RepaymentScheduleFactory
 {
     /**
      * Detailed repayment schedule
