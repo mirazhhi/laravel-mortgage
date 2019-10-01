@@ -203,6 +203,4 @@ class AnnuitySchedule implements RepaymentSchedule
             'deptValues' => $this->deptValues,
         ];
     }
-
-
 }

@@ -73,7 +73,6 @@ class DifferentiatedSchedule implements RepaymentSchedule
      */
     private $deptValues = [];
 
-
     /**
      * To compute and set percent dept
      * 

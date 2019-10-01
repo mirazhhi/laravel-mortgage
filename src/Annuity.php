@@ -25,7 +25,7 @@ class Annuity extends Mortgage
     private $effectiveRate;
     
     /**
-     * 
+     * Initialize the default value and inject schedule with effective Rate
      * 
      * @param RepaymentSchedule $RepaymentSchedule
      * @param EffectiveRate     $effectiveRate
@@ -71,7 +71,6 @@ class Annuity extends Mortgage
     {
         return $this->effectiveRate->toCompute($this->repaymentSchedule['deptValues']);
     }
-
 
     /**
      * Total amount with percent

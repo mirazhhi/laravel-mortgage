@@ -13,7 +13,6 @@ class MortgageServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
         $this->app->when(\Mortgage\Differentiated::class)
                   ->needs(\Mortgage\Contracts\RepaymentSchedule::class)
                   ->give(\Mortgage\Schedules\DifferentiatedSchedule::class);
@@ -25,7 +24,6 @@ class MortgageServiceProvider extends ServiceProvider
         // Facades
         $this->app->bind('Differentiated', \Mortgage\Differentiated::class);
         $this->app->bind('Annuity', \Mortgage\Annuity::class);
-
     }
 
     /**
@@ -35,7 +33,6 @@ class MortgageServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         $this->publishes([
             __DIR__ . '/../config/mortgage.php' => config_path('mortgage.php'),
         ]);

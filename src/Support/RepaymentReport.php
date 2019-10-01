@@ -51,19 +51,14 @@ class RepaymentReport
      */
     public function __construct($termInMonth, $totoalDept, $percentDept, $mainDept, $indebtedness)
     {
-        // some desc
         $this->termInMonth  = $termInMonth;
 
-        // some desc
         $this->totoalDept   = $totoalDept;
 
-        // some desc
         $this->percentDept  = $percentDept;
 
-        // some desc
         $this->mainDept     = $mainDept;
 
-        // some desc
         $this->indebtedness = $indebtedness;
     }
 }

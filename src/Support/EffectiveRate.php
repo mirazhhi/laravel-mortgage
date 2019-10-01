@@ -11,6 +11,7 @@ class EffectiveRate
      * @var integer FINANCIAL_MAX_ITERATIONS
      */
     const FINANCIAL_MAX_ITERATIONS = 128;
+
     /**
      * @var float FINANCIAL_ACCURACY
      */
@@ -140,7 +141,6 @@ class EffectiveRate
         }
         return null;
     }
-
 
     /**
      * To compute effective rate

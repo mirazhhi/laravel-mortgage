@@ -25,6 +25,7 @@ class Differentiated extends Mortgage
     private $effectiveRate;
 
     /**
+     * Initialize the default value and inject schedule with effective Rate
      * 
      * @param RepaymentSchedule $repaymentSchedule
      * @param EffectiveRate     $effectiveRate
@@ -50,7 +51,7 @@ class Differentiated extends Mortgage
     {
         return collect($this->repaymentSchedule['repaymentScheduleResult']);
     }
-    
+
     /**
      * Total amount in percent
      * 
@@ -70,7 +71,6 @@ class Differentiated extends Mortgage
     {
         return $this->effectiveRate->toCompute($this->repaymentSchedule['deptValues']);
     }
-
 
     /**
      * Total amount with percent

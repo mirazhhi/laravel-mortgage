@@ -40,7 +40,7 @@ abstract class Mortgage
         $this->loanAmount   = $loanAmount;
         $this->interestRate = $interestRate;
     }
-    
+
     /**
      * Retrieves loan term
      * 
@@ -90,7 +90,6 @@ abstract class Mortgage
     {
         return $this->loanAmount / $this->loanTerm;
     }
-
 
     /**
      * showRepaymentSchedule
