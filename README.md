@@ -43,6 +43,7 @@ Look at one of the following topics to learn more about LaravelMortgage
 
 * [Usage](#usage)
 * [Example](#example)
+* [Change log](#Change-log)
 * [License](#license)
 
 ## Usage
@@ -126,6 +127,10 @@ Below is a little example of how to list the cart content in a table:
 
 ```
 
+
+## Change log
+
+Detailed changes for each release [changelog](https://github.com/Mhiggster/laravel-mortgage/blob/master/changelog.md)
 
 ## License
 
