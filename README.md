@@ -5,6 +5,15 @@
 [![License](https://poser.pugx.org/mhiggster/laravel-mortgage/license)](https://packagist.org/packages/mhiggster/laravel-mortgage)
 
 A simple mortgage calculator for Laravel.
+Laravel-mortgage allows you to calculate the mortgage in two ways:
+
+#### Annuity
+
+An annuity is a series of payments made at equal intervals. Examples of annuities are regular deposits to a savings account, monthly home mortgage payments, monthly insurance payments and pension payments. Annuities can be classified by the frequency of payment dates.
+
+#### Differentiated payment
+
+Differentiated payment - this is an unequal monthly tranche proportionally reduced during the loan term. The largest payments - in the fourth quarter. “Median” payments are usually comparable to annuities.
 
 ## Installation
 
