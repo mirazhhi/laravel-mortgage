@@ -87,7 +87,7 @@ Annuity::getMainDept() // 166666.66666667
 
 ### Annuity::showRepaymentSchedule()
 
-Rendering Schedule by periods
+This method returns a collection, which helps to find out `termInMonth`, `totoalDept`, `percentDept`, `mainDept`, `indebtedness` using this data you can build a repayment schedule. an example you can see below
 
 ```php
 Annuity::showRepaymentSchedule()
@@ -116,9 +116,7 @@ The total amount payable to the debtor
 ```php
 Annuity::getTotalamount()
 ```
-
-
-Lorem ipsum dolord sit amet, consectetur adipisicing elit. Ab ullam quisquam ex, quo. Molestiae accusantium ut quis libero repellat ratione dolorum, illo nulla in cumque officia, eaque quaerat suscipit perferendis.
+Similarly, all of these methods are available on the Differentiated facade.
 
 
 ## Exceptions
