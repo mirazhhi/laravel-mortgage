@@ -124,7 +124,7 @@ Similarly, all of these methods are available on the Differentiated facade.
 Below is a little example of how to list the cart content in a table:
 
 ```php
-
+ TODO
 ```
 
 
