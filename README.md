@@ -42,8 +42,8 @@ Now you're ready to start using the laravel-mortgage in your application.
 Look at one of the following topics to learn more about LaravelMortgage
 
 * [Usage](#usage)
-* [Exceptions](#exceptions)
 * [Example](#example)
+* [License](#license)
 
 ## Usage
 
@@ -118,11 +118,6 @@ Annuity::getTotalamount()
 ```
 Similarly, all of these methods are available on the Differentiated facade.
 
-
-## Exceptions
-
-TO DO
-
 ## Example
 
 Below is a little example of how to list the cart content in a table:
@@ -130,3 +125,10 @@ Below is a little example of how to list the cart content in a table:
 ```php
 
 ```
+
+
+## License
+
+[MIT](https://github.com/Mhiggster/laravel-mortgage/blob/master/LICENSE.md)
+
+Copyright (c) 2019-present, Miras Nurmukhanbetov
