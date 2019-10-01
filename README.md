@@ -87,7 +87,7 @@ Annuity::getMainDept() // 166666.66666667
 ```
 
 ### Annuity::showRepaymentSchedule()
-
+ 
 This method returns a collection, which helps to find out `termInMonth`, `totoalDept`, `percentDept`, `mainDept`, `indebtedness` using this data you can build a repayment schedule. an example you can see below
 
 ```php
