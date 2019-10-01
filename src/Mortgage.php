@@ -27,7 +27,6 @@ abstract class Mortgage
      */
     protected $interestRate;
 
-
     /**
      * Initializes the main parameters
      * 

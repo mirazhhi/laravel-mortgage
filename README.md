@@ -38,18 +38,23 @@ Look at one of the following topics to learn more about LaravelMortgage
 
 ## Usage
 
-The mortgage gives you the following methods to use:
 
-### Annuity::getLoanTerm() / Differentiated::getLoanTerm()
+the Mortgage gives you two facades: 
+`Annuity` and `Differentiated`
+These facades gives you the following methods to use:
 
-Simple getter which retrieves the loan term
+### Annuity::getLoanTerm()
+
+Simple getter which retrieves the loan term. Period for which the debtor must repay the loan
 
 ```php
 Annuity::getLoanTerm() // 48
 ```
+
 ### Annuity::getLoanAmount()
 
-Simple getter which retrieves the loan amount
+Simple getter which retrieves the loan amount. The method allows you to find out 
+how much the debtor took a loan
 
 ```php
 Annuity::getLoanAmount() // 8000000
@@ -57,7 +62,7 @@ Annuity::getLoanAmount() // 8000000
 
 ### Annuity::getInterestRate()
 
-Simple getter which retrieves the interest rate
+Simple getter which retrieves the interest rate. at what interest rate did the lender give a loan
 
 ```php
 Annuity::getInterestRate() // 18
@@ -81,7 +86,7 @@ Annuity::showRepaymentSchedule()
 
 ### Annuity::getPercentAmount()
 
-Rendering Schedule by periods
+Amount accrued as a percentage
 
 ```php
 Annuity::getPercentAmount()
@@ -89,7 +94,7 @@ Annuity::getPercentAmount()
 
 ### Annuity::effectiveRate()
 
-Rendering Schedule by periods
+The effective annual interest rate is the interest rate that is actually earned or paid on an investment.
 
 ```php
 Annuity::effectiveRate()
@@ -97,7 +102,7 @@ Annuity::effectiveRate()
 
 ### Annuity::getTotalamount()
 
-Rendering Schedule by periods
+The total amount payable to the debtor
 
 ```php
 Annuity::getTotalamount()
