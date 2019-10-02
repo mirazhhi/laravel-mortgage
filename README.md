@@ -134,6 +134,6 @@ Detailed changes for each release [changelog](https://github.com/Mhiggster/larav
 
 ## License
 
-[MIT](https://github.com/Mhiggster/laravel-mortgage/blob/master/LICENSE.md)
+[MIT](https://github.com/Mhiggster/laravel-mortgage/blob/master/LICENSE)
 
 Copyright (c) 2019-present, Miras Nurmukhanbetov
