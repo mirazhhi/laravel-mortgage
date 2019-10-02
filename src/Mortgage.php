@@ -34,11 +34,9 @@ abstract class Mortgage
      * @param integer $loanAmount
      * @param mixed $interestRate
      */
-    function __construct($loanTerm, $loanAmount, $interestRate)
+    function __construct(int $loanTerm, int $loanAmount, int $interestRate)
     {
-        $this->loanTerm     = $loanTerm;
-        $this->loanAmount   = $loanAmount;
-        $this->interestRate = $interestRate;
+        $this->setViscera($loanTerm, $loanAmount, $interestRate);
     }
 
     /**
@@ -46,7 +44,7 @@ abstract class Mortgage
      * 
      * @return integer
      */
-    public function getLoanTerm()
+    public function getLoanTerm() : int
     {
         return $this->loanTerm;
     }
@@ -56,7 +54,7 @@ abstract class Mortgage
      * 
      * @return integer
      */
-    public function getLoanAmount()
+    public function getLoanAmount() : int
     {
         return $this->loanAmount;
     }
@@ -66,7 +64,7 @@ abstract class Mortgage
      * 
      * @return mixed [integer/float]
      */
-    public function getInterestRate()
+    public function getInterestRate() : int
     {
         return $this->interestRate;
     }
@@ -76,7 +74,7 @@ abstract class Mortgage
      * 
      * @return flaot
      */
-    public function getPercentageRatio()
+    public function getPercentageRatio() : int
     {
         return $this->interestRate / 12;
     }
@@ -89,6 +87,19 @@ abstract class Mortgage
     public function getMainDept()
     {
         return $this->loanAmount / $this->loanTerm;
+    }
+
+    
+    /**
+     * setCredits
+     *
+     * @return void
+     */
+    public function setViscera($loanTerm, $loanAmount, $interestRate)
+    {
+        $this->loanTerm     = $loanTerm;
+        $this->loanAmount   = $loanAmount;
+        $this->interestRate = $interestRate;
     }
 
     /**
