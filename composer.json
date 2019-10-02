@@ -1,6 +1,11 @@
 {
     "name": "mhiggster/laravel-mortgage",
     "description": "mortgage-loan",
+    "keywords": [
+        "laravel",
+        "mortgage"
+    ],
+    "license": "MIT",
     "authors": [
         {
             "name": "mhiggster",
@@ -21,7 +26,7 @@
             "Mortgage\\Tests\\": "tests/"
         }
     },
-    "minimum-stability": "alpha",
+    "minimum-stability": "stable",
     "extra": {
         "laravel": {
             "providers": [
