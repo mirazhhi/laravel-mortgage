@@ -123,8 +123,35 @@ Similarly, all of these methods are available on the Differentiated facade.
 
 Below is a little example of how to list the cart content in a table:
 
-```php
- TODO
+```html
+ // Display the content in a View.
+<table>
+    <thead>
+        <tr>
+            <th>Term in month</th>
+            <th>Totoal dept</th>
+            <th>Percent dept</th>
+            <th>Main dept</th>
+            <th>Indebtedness</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach(Annuity::showRepaymentSchedule() as $row)
+
+            <tr>
+                <td>{{ termInMonth }}</td>
+                <td>{{ totoalDept }}</td>
+                <td>{{ percentDept }}</td>
+                <td>{{ mainDept }}</td>
+                <td>{{ indebtedness }}</td>
+            </tr>
+
+        @endforeach
+
+    </tbody>
+</table>
 ```
 
 

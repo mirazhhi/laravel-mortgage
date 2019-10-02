@@ -14,9 +14,9 @@ class APaymentTest extends TestCase
     {
         $container = \Illuminate\Container\Container::getInstance();
 
-        $container->bind(\Mortgage\Factory\RepaymentScheduleFactory::class, \Mortgage\Factory\DifferentiatedPaymentFactory::class);
+        $container->bind(\Mortgage\Factory\RepaymentSchedule::class, \Mortgage\Factory\DifferentiatedPayment::class);
 
-        $this->dfPayment = $container->make(\Mortgage\DifferentiatedPayment::class, [
+        $this->dfPayment = $container->make(\Mortgage\Differentiated::class, [
             'loanTerm' => 12,
             'loanAmount' => 8000000,
             'interestRate' => 14.5,
