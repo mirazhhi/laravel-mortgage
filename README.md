@@ -117,6 +117,15 @@ The total amount payable to the debtor
 ```php
 Annuity::getTotalamount()
 ```
+
+### Annuity::setViscera(48, 8000000, 18)
+
+If you want to use your own data
+
+```php
+Annuity::setViscera(48, 8000000, 18)
+```
+
 Similarly, all of these methods are available on the Differentiated facade.
 
 ## Example
