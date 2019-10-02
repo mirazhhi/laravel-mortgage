@@ -22,6 +22,7 @@ class APaymentTest extends TestCase
             'interestRate' => 14.5,
         ]);
     }
+
     /**
      * @test
      **/
@@ -42,8 +43,6 @@ class APaymentTest extends TestCase
 
         $this->assertEquals($this->dfPayment->getPercentageRatio(), 1.2083333333333333);
     }
-
-
 
     /**
      * @test
