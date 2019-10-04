@@ -39,7 +39,6 @@ class DFPaymentTest extends TestCase
     {
         $this->assertEquals($this->dfPayment->getMainDept(), 666666.6666666666);
         $this->assertEquals((round($this->dfPayment->getMainDept() * 100) / 100), 666666.67);
-
         $this->assertEquals($this->dfPayment->getPercentageRatio(), 1.2083333333333333);
     }
 
