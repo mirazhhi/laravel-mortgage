@@ -3,4 +3,5 @@ composer.phar
 composer.lock
 .DS_Store
 /.history
+/.idea
 doc.txt
