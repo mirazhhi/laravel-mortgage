@@ -9,7 +9,7 @@ class AnnuitySchedule implements RepaymentSchedule
 {
     /**
      * Detailed repayment schedule
-     * 
+     *
      * @var array
      */
     private $repaymentScheduleResult = [];
@@ -17,7 +17,7 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * The amount you need to pay
      * for the current month
-     * 
+     *
      * @var integer
      */
     private $mainDeptByMonth;
@@ -25,7 +25,7 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * How much is left to pay
      * for the entire period
-     * 
+     *
      * @var integer
      */
     private $loanAmount;
@@ -33,49 +33,49 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * How much is left to pay
      * from the current month
-     * 
+     *
      * @var integer
      */
     private $loanAmountInMonth;
 
     /**
      * main dept by month
-     * 
+     *
      * @var integer
      */
     private $mainDept;
 
     /**
      * dept by percent
-     * 
+     *
      * @var integer
      */
     private $percentDept;
 
     /**
      * total percent dept for the entire period
-     * 
+     *
      * @var integer
      */
     private $totalPercentDept;
-    
+
     /**
      * total dept for the entire period with percent
-     * 
+     *
      * @var integer
      */
     private $totalDept;
 
     /**
      * negative debt by month
-     * 
+     *
      * @var array
      */
     private $deptValues = [];
 
     /**
      * To compute and set percent dept
-     * 
+     *
      * @param  float $percentageRatio
      * @return object
      */
@@ -88,7 +88,7 @@ class AnnuitySchedule implements RepaymentSchedule
 
     /**
      * To compute and set total dept
-     * 
+     *
      * @return object
      */
     private function totalDeptCompute($mortgage)
@@ -104,7 +104,7 @@ class AnnuitySchedule implements RepaymentSchedule
 
     /**
      * main dept updated TO DO
-     * 
+     *
      * @return object
      */
     private function setMainDept()
@@ -115,7 +115,7 @@ class AnnuitySchedule implements RepaymentSchedule
 
     /**
      * Set the initial parameters
-     * 
+     *
      * @param  Mortgage $mortgage \Mortgage\Mortgage
      * @return void
      */
@@ -135,8 +135,8 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * To compute and set main dept by month
      * and loan amount in month
-     * 
-     * @param  integer $monthIndex 
+     *
+     * @param  integer $monthIndex
      * @param  Mortgage $mortgage \Mortgage\Mortgage
      * @return object
      */
@@ -149,7 +149,7 @@ class AnnuitySchedule implements RepaymentSchedule
 
     /**
      * Just round the number
-     * 
+     *
      * @param  integer $repNumb
      * @return void
      */
@@ -160,15 +160,14 @@ class AnnuitySchedule implements RepaymentSchedule
 
     /**
      * Сreate a new instance of the schedule
-     * 
+     *
      * @param  integer $monthIndex
      * @return object
      */
     private function createSchedule($monthIndex)
     {
-        // dd($this->percentDept);
         return new \Mortgage\Support\RepaymentReport(
-            $monthIndex, 
+            $monthIndex,
             $this->numbRound($this->totalDept),
             $this->percentDept,
             $this->numbRound($this->mainDept),
@@ -178,7 +177,7 @@ class AnnuitySchedule implements RepaymentSchedule
 
     /**
      * Calculate the full mortgage schedule
-     * 
+     *
      * @param  Mortgage $mortgage
      * @return array
      */

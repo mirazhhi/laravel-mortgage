@@ -2,12 +2,11 @@
 
 namespace Mortgage\Support;
 
-
 class EffectiveRate
 {
     /**
      * Iterations counts
-     * 
+     *
      * @var integer FINANCIAL_MAX_ITERATIONS
      */
     const FINANCIAL_MAX_ITERATIONS = 128;
@@ -19,10 +18,11 @@ class EffectiveRate
 
     /**
      * DATEDIFF TO DO
-     * 
-     * @param string $datepart  [description]
+     *
+     * @param string $datepart [description]
      * @param integer $startdate unixtime
-     * @param integer $enddate   unixtime
+     * @param integer $enddate unixtime
+     * @return float|int
      */
     private function DATEDIFF($datepart, $startdate, $enddate)
     {
@@ -42,21 +42,21 @@ class EffectiveRate
             case 'n':
             case 'mi':
             case 'minute':
-                return ceil(($enddate - $startdate) / 60); 
+                return ceil(($enddate - $startdate) / 60);
                 break;
             case 'hh':
             case 'hour':
-                return ceil(($enddate - $startdate) / 3600); 
+                return ceil(($enddate - $startdate) / 3600);
                 break;
             case 'd':
             case 'dd':
             case 'day':
-                return ceil(($enddate - $startdate) / 86400); 
+                return ceil(($enddate - $startdate) / 86400);
                 break;
             case 'wk':
             case 'ww':
             case 'week':
-                return ceil(($enddate - $startdate) / 604800); 
+                return ceil(($enddate - $startdate) / 604800);
                 break;
             case 'm':
             case 'mm':
@@ -72,7 +72,7 @@ class EffectiveRate
 
     /**
      * XNPV TO DO
-     * 
+     *
      * @param float $rate
      * @param array $values
      * @param array $dates
@@ -95,7 +95,7 @@ class EffectiveRate
 
     /**
      * XIRR TO DO
-     * 
+     *
      * @param array $values
      * @param array $dates
      * @param float  $guess
@@ -144,7 +144,7 @@ class EffectiveRate
 
     /**
      * To compute effective rate
-     * 
+     *
      * @param  array $deptValues
      * @return float
      */

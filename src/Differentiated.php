@@ -2,7 +2,6 @@
 
 namespace Mortgage;
 
-use Mortgage\Mortgage;
 use Mortgage\Support\EffectiveRate;
 use Mortgage\Contracts\RepaymentSchedule;
 
@@ -11,7 +10,7 @@ class Differentiated extends Mortgage
     /**
      * This object will produce
      * a repayment schedule for each month
-     * 
+     *
      * @var object
      */
     private $repaymentSchedule;
@@ -19,19 +18,16 @@ class Differentiated extends Mortgage
     /**
      * This object will calculate
      * the annual effective rate
-     * 
+     *
      * @var object
      */
     private $effectiveRate;
 
     /**
      * Initialize the default value and inject schedule with effective Rate
-     * 
+     *
      * @param RepaymentSchedule $repaymentSchedule
-     * @param EffectiveRate     $effectiveRate
-     * @param integer           $loanTerm
-     * @param integer           $loanAmount
-     * @param integer           $interestRate
+     * @param EffectiveRate $effectiveRate
      */
     function __construct(RepaymentSchedule $repaymentSchedule, EffectiveRate $effectiveRate)
     {
@@ -44,7 +40,7 @@ class Differentiated extends Mortgage
 
     /**
      * Displays the repayment schedule for the entire period
-     * 
+     *
      * @return array
      */
     public function showRepaymentSchedule()
@@ -54,17 +50,17 @@ class Differentiated extends Mortgage
 
     /**
      * Total amount in percent
-     * 
+     *
      * @return integer
      */
     public function getPercentAmount()
     {
-       return $this->repaymentSchedule['totalPercentDept']; 
+       return $this->repaymentSchedule['totalPercentDept'];
     }
 
     /**
      * Effective rate in percent
-     * 
+     *
      * @return integer
      */
     public function effectiveRate()
@@ -75,7 +71,7 @@ class Differentiated extends Mortgage
     /**
      * Total amount with percent
      * in the other words it [ percent dept + loan amount]
-     * 
+     *
      * @return integer
      */
     public function getTotalamount()
