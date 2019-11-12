@@ -77,9 +77,9 @@ class AnnuitySchedule implements RepaymentSchedule
      * To compute and set percent dept
      *
      * @param  float $percentageRatio
-     * @return object
+     * @return AnnuitySchedule
      */
-    private function percentDeptCompute($percentageRatio)
+    private function percentDeptCompute($percentageRatio) : AnnuitySchedule
     {
         $this->percentDept = $this->numbRound(($this->loanAmountInMonth * $percentageRatio) / 100);
         $this->totalPercentDept += $this->percentDept;
@@ -89,9 +89,10 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * To compute and set total dept
      *
-     * @return object
+     * @param $mortgage
+     * @return AnnuitySchedule
      */
-    private function totalDeptCompute($mortgage)
+    private function totalDeptCompute($mortgage) : AnnuitySchedule
     {
         $percentRate           = (($mortgage->getInterestRate() / 100 ) / 12);
         $exponentExpression    = pow((1 + $percentRate), $mortgage->getLoanTerm());
@@ -105,9 +106,9 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * main dept updated TO DO
      *
-     * @return object
+     * @return AnnuitySchedule
      */
-    private function setMainDept()
+    private function setMainDept() : AnnuitySchedule
     {
         $this->mainDept = $this->totalDept - $this->percentDept;
         return $this;
@@ -119,7 +120,7 @@ class AnnuitySchedule implements RepaymentSchedule
      * @param  Mortgage $mortgage \Mortgage\Mortgage
      * @return void
      */
-    private function baseMount($mortgage)
+    private function baseMount($mortgage) : void
     {
         $this->mainDept          = 0;
         $this->loanAmount        = $mortgage->getLoanAmount();
@@ -136,11 +137,11 @@ class AnnuitySchedule implements RepaymentSchedule
      * To compute and set main dept by month
      * and loan amount in month
      *
-     * @param  integer $monthIndex
-     * @param  Mortgage $mortgage \Mortgage\Mortgage
-     * @return object
+     * @param integer $monthIndex
+     * @param Mortgage $mortgage \Mortgage\Mortgage
+     * @return AnnuitySchedule
      */
-    private function loanAmountCompute($monthIndex, Mortgage $mortgage)
+    private function loanAmountCompute($monthIndex, Mortgage $mortgage) : AnnuitySchedule
     {
         $this->mainDeptByMonth = $this->mainDept * $monthIndex;
         $this->loanAmountInMonth = $this->loanAmount - $this->mainDeptByMonth;
@@ -150,10 +151,10 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * Just round the number
      *
-     * @param  integer $repNumb
-     * @return void
+     * @param integer $repNumb
+     * @return float|int
      */
-    private function numbRound($repNumb)
+    private function numbRound($repNumb) : int
     {
         return round($repNumb * 100) / 100;
     }
@@ -161,10 +162,10 @@ class AnnuitySchedule implements RepaymentSchedule
     /**
      * Сreate a new instance of the schedule
      *
-     * @param  integer $monthIndex
-     * @return object
+     * @param integer $monthIndex
+     * @return \Mortgage\Support\RepaymentReport
      */
-    private function createSchedule($monthIndex)
+    private function createSchedule($monthIndex) : RepaymentReport
     {
         return new \Mortgage\Support\RepaymentReport(
             $monthIndex,
@@ -176,22 +177,34 @@ class AnnuitySchedule implements RepaymentSchedule
     }
 
     /**
+     * director Compute
+     * @param $mortgage
+     * @param $monthIndex
+     * @return void
+     */
+    private function directorCompute($mortgage, $monthIndex) : void
+    {
+        $this->totalDeptCompute($mortgage)
+                 ->percentDeptCompute($mortgage->getPercentageRatio())
+                 ->setMainDept()
+                 ->loanAmountCompute($monthIndex, $mortgage);
+    }
+
+
+    /**
      * Calculate the full mortgage schedule
      *
      * @param  Mortgage $mortgage
      * @return array
      */
-    public function toCompute(Mortgage $mortgage)
+    public function toCompute(Mortgage $mortgage) : array
     {
 
         $this->baseMount($mortgage);
 
         for ($monthIndex = 1; $monthIndex <= $mortgage->getLoanTerm(); $monthIndex++) {
 
-            $this->totalDeptCompute($mortgage)
-                 ->percentDeptCompute($mortgage->getPercentageRatio())
-                 ->setMainDept()
-                 ->loanAmountCompute($monthIndex, $mortgage);
+            $this->directorCompute($mortgage, $monthIndex);
 
             array_push($this->repaymentScheduleResult, $this->createSchedule($monthIndex));
         }

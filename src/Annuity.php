@@ -2,6 +2,7 @@
 
 namespace Mortgage;
 
+use Cassandra\Collection;
 use Mortgage\Contracts\RepaymentSchedule;
 use Mortgage\Support\EffectiveRate;
 
@@ -41,9 +42,9 @@ class Annuity extends Mortgage
     /**
      * Displays the repayment schedule for the entire period
      *
-     * @return array
+     * @return Collection
      */
-    public function showRepaymentSchedule()
+    public function showRepaymentSchedule() : Collection
     {
         return collect($this->repaymentSchedule['repaymentScheduleResult']);
     }
@@ -53,7 +54,7 @@ class Annuity extends Mortgage
      *
      * @return integer
      */
-    public function getPercentAmount()
+    public function getPercentAmount() : int
     {
        return $this->repaymentSchedule['totalPercentDept'];
     }
@@ -63,7 +64,7 @@ class Annuity extends Mortgage
      *
      * @return integer
      */
-    public function effectiveRate()
+    public function effectiveRate() : int
     {
         return $this->effectiveRate->toCompute($this->repaymentSchedule['deptValues']);
     }
@@ -74,7 +75,7 @@ class Annuity extends Mortgage
      *
      * @return integer
      */
-    public function getTotalamount()
+    public function getTotalamount() : int
     {
         return $this->repaymentSchedule['totalPercentDept'] + $this->loanAmount;
     }
@@ -82,9 +83,9 @@ class Annuity extends Mortgage
     /**
      * mortgageType
      *
-     * @return void
+     * @return string
      */
-    public function mortgageType()
+    public function mortgageType() : string
     {
         return 'Annuity Payment';
     }

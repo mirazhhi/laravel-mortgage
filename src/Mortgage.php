@@ -85,9 +85,9 @@ abstract class Mortgage
     /**
      * Сalculates main dept by month
      *
-     * @return float
+     * @return int
      */
-    public function getMainDept()
+    public function getMainDept() : int
     {
         return $this->loanAmount / $this->loanTerm;
     }
@@ -101,7 +101,7 @@ abstract class Mortgage
      * @param $interestRate
      * @return void
      */
-    public function setViscera($loanTerm, $loanAmount, $interestRate)
+    public function setViscera($loanTerm, $loanAmount, $interestRate) : void
     {
         $this->loanTerm     = $loanTerm;
         $this->loanAmount   = $loanAmount;
